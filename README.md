@@ -20,12 +20,13 @@ This folder contains several scripts that showcase how to fine-tune a 🤗 Trans
 like SQuAD. 
 
 ## Prepare data
-1. Download the tar data `eqa_datasets.tar.gz` from [this url](https://drive.google.com/file/d/1JmZoPckw9Nxek-TA5q4p7SrIa-KOv_as/view?usp=sharing).
+1. Download the tar data `eqa_datasets.tar.gz` from [this url](https://drive.google.com/file/d/1l-BPaKAFIYZdmTV3ext3fQkWaqUA2GxV/view?usp=drive_link).
 2. Untar the data by the command `tar -xzvf eqa_datasets.tar.gz`.
 3. Change the `ROOT_DIR` variable in `loaders/eqa_loader.py` to `path/to/your/eqa_datasets`.
 
 ## Training script for `run_qa.py`
 * The sample running script can be found in [`scripts/sample.sh`](scripts/sample.sh).
+* The script of pretraining experiments can be found in [`scripts/LOO_base-ft.sh`](scripts/LOO_base-ft.sh).
 * The `--model_type` can be `origin`, `cls`, or `sim`.
 * For `--model_type sim`, one can further specify the SimCSE model version by setting `--simcse_name princeton-nlp/some-other-model`.
 
@@ -108,7 +109,7 @@ python3 run_qa_no_trainer.py \
     --output_dir $OUTPUT_DIR
 ```
 
-## Training script for `run_qa_no_trainer_meta.py`
+## Training script for `run_qa_no_trainer_meta.py` (Not introduced in this project)
 * The support and query shot can be changed in `--k_support` and `--k_query`.
 * The `--type origin` and `--loss meta-sim` is implemented (Meta-T3 with SimCSE loss).
 
